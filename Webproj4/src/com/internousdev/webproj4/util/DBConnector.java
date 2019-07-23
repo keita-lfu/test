@@ -1,4 +1,4 @@
-package com.internousdev.webproj3.util;
+package com.internousdev.webproj4.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,7 +17,7 @@ public class DBConnector {
 	private static String url ="jdbc:mysql://localhost/testdb";
 
 	/**
-	 * データベース接続ユーザー名
+	 * データベース接続ユーザ名
 	 */
 	private static String user ="root";
 
