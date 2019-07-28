@@ -16,7 +16,7 @@ public class LoginAction extends ActionSupport{
 
 	private List<LoginDTO> LoginDTOList = new ArrayList<LoginDTO>();
 
-	public String execuute() {
+	public String execute() {
 		String ret = ERROR;
 		System.out.println(username);
 		System.out.println(password);

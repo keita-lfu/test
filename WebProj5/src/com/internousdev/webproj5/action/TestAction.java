@@ -1,17 +1,21 @@
-package com.internousdev.webproj4.action;
+package com.internousdev.webproj5.action;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-import com.internousdev.webproj4.dao.TestDAO;
-import com.internousdev.webproj4.dto.LoginDTO;
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.internousdev.webproj5.dao.TestDAO;
+import com.internousdev.webproj5.dto.LoginDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class TestAction extends ActionSupport{
+public class TestAction extends ActionSupport implements SessionAware{
 
 	private String username;
 	private String password;
 	private List<LoginDTO> loginDTOList = new ArrayList<LoginDTO>();
+	private Map<String, Object> session;
 
 	public String execute() {
 		String ret = ERROR;
@@ -26,12 +30,13 @@ public class TestAction extends ActionSupport{
 		}
 
 		loginDTOList = dao.select(username, password);
+		session.put("loginDTOList", loginDTOList);
 
 		return ret;
 
 	}
 
-	public String getUsername(){
+	public String getUsername() {
 		return username;
 	}
 
@@ -47,12 +52,12 @@ public class TestAction extends ActionSupport{
 		this.password = password;
 	}
 
-	public List<LoginDTO> getLoginDTOList() {
-		return loginDTOList;
+	public Map<String, Object> getSession() {
+		return session;
 	}
 
-	public void setLoginDTOList(List<LoginDTO> loginDTOList) {
-		this.loginDTOList = loginDTOList;
+	public void setSessoin(Map<String, Object> session) {
+		this.session = session;
 	}
 
 }
